@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 
 
@@ -30,21 +31,19 @@ public class Arrays_Util
 
 
 //  TODO: FUNCTION DOCUMENTATION; overridden method
-    public static ArrayList<Character> getSharedElements(String s1, String s2)
+    public static ArrayList<String> getSharedElements(String[] s1, String[] s2)
     {
-        ArrayList<Character> sharedElements = new ArrayList<>();
-        char[] charArr1 = s1.toCharArray();
-        char[] charArr2 = s2.toCharArray();
+        ArrayList<String> sharedElements = new ArrayList<String>();
 
         try
         {
-            OUTER: for (char c1 : charArr1)
+            OUTER: for (String e1 : s1)
             {
-                for (char c2 : charArr2)
+                for (String e2 : s2)
                 {
-                    if (c1 == c2)
+                    if (Objects.equals(e1, e2))
                     {
-                        sharedElements.add(c1);
+                        sharedElements.add(e1);
                         continue OUTER;
                     }
                 }
@@ -60,6 +59,17 @@ public class Arrays_Util
         {
             //TODO: EXCEPTION HANDLING
         }
+
+        return sharedElements;
+    }
+
+
+
+    public static ArrayList<Object> getSharedElements(ArrayList<Object> arrList1, ArrayList<Object> arrayList2)
+    {
+        ArrayList<Object> sharedElements = new ArrayList<>();
+
+
 
         return sharedElements;
     }
